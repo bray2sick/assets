@@ -69,6 +69,13 @@ You can now use this URL in your HTML, CSS, or JavaScript files to serve the ima
 <img src="https://raw.githack.com/bray2sick/assets/main/images/apple.webp">
 <img src="https://rawcdn.githack.com/bray2sick/assets/8af9c43c8b6a6cee840cb10d6933ae579834508d/images/apple.webp">
 ```
+
+Note: Make sure to use the production URL when publishing your website. Otherwise, Google Lighthouse will flag the audit with the issue "Serve static assets with an efficient cache policy."
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/974d988b-7a68-45d7-b8a0-c1e9623e4f05">
+</p>
+
 ## Conclusion
 
 Using a free CDN like [jsDelivr](https://www.jsdelivr.com/) with your GitHub repository is a simple and effective way to improve the performance of your website by serving static assets faster.
