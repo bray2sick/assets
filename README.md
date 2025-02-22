@@ -1,4 +1,4 @@
-# Using GitHub as a Free Content Delivery Network (CDN) with jsDelivr.
+# Using GitHub as a Free Content Delivery Network (CDN) with jsDelivr
 
 ## Introduction
 
