@@ -12,7 +12,9 @@ If you haven't already, create a GitHub repository and upload your static assets
 
 ### 2. Use jsDelivr as a CDN
 
-[jsDelivr](https://www.jsdelivr.com/?docs=gh) is a free CDN that can serve files directly from GitHub repositories. To use jsDelivr:
+[jsDelivr](https://www.jsdelivr.com/?docs=gh) is a free CDN that can serve files directly from GitHub repositories. [jsDelivr](https://www.jsdelivr.com/?docs=gh) uses a unique Multi-CDN infrastructure built on top of CDN networks provided by [Cloudflare](https://www.cloudflare.com/en-au/application-services/products/cdn/), [Fastly](https://www.fastly.com/products/cdn), [Bunny](https://bunny.net/), and [GCore](https://gcore.com/). 
+
+To use [jsDelivr](https://www.jsdelivr.com/?docs=gh):
 
 1. Navigate to the images folder (or the folder where you placed your assets) in your GitHub repository.
 2. Copy the Permalink:
@@ -27,7 +29,7 @@ In the top-right corner of the file preview, click the three dots `...` and sele
 
 This will give you a link that looks something like:
 ```
-https://github.com/<your-username>/assets/blob/8af9c43c8b6a6cee840cb10d6933ae579834508d/images/apple.webp
+https://github.com/<your-username>/<your-repo>/blob/8af9c43c8b6a6cee840cb10d6933ae579834508d/images/apple.webp
 ```
 
 3. Modify the URL:
@@ -35,18 +37,18 @@ https://github.com/<your-username>/assets/blob/8af9c43c8b6a6cee840cb10d6933ae579
 To convert this into the production-ready URL for the CDN, you need to remove the following part:
 
 ```
-https://github.com/<your-username>/assets/blob/
+https://github.com/<your-username>/<your-repo>/blob/
 ```
 
-So, for the example above, the production URL would be:
+And replace it, so for the example above, the production URL would be:
 ```
-https://cdn.jsdelivr.net/gh/<your-username>/assets@8af9c43c8b6a6cee840cb10d6933ae579834508d/images/apple.webp
+https://cdn.jsdelivr.net/gh/<your-username>/<your-repo>@8af9c43c8b6a6cee840cb10d6933ae579834508d/images/apple.webp
 ```
 Now, you have both development and production URLs to choose from:
 
 **Development URL** (latest changes reflected instantly):
 ```
-https://cdn.jsdelivr.net/gh/<your-username>/assets@master/images/apple.webp
+https://cdn.jsdelivr.net/gh/<your-username>/<your-repo>@master/images/apple.webp
 ```
 
 Uses the master branch, reflecting changes within minutes. Ideal for testing and development.
@@ -54,7 +56,7 @@ Uses the master branch, reflecting changes within minutes. Ideal for testing and
 **Production URL** (stable and permanent version):
 
 ```
-https://cdn.jsdelivr.net/gh/<your-username>/assets@8af9c43c8b6a6cee840cb10d6933ae579834508d/images/apple.webp
+https://cdn.jsdelivr.net/gh/<your-username>/<your-repo>@8af9c43c8b6a6cee840cb10d6933ae579834508d/images/apple.webp
 ```
 
 Points to a specific commit, ensuring stable, cached content. Best for production environments where stability is key.
@@ -65,11 +67,11 @@ While I prefer [jsDelivr](https://www.jsdelivr.com/), you can also use other fre
 
 **Statically**:
 ```
-https://cdn.statically.io/gh/<your-username>/assets@master/images/apple.webp
+https://cdn.statically.io/gh/<your-username>/<your-repo>@master/images/apple.webp
 ```
 **raw.githack.com**:
 ```
-https://raw.githack.com/<your-username>/assets/main/images/apple.webp
+https://raw.githack.com/<your-username>/<your-repo>/main/images/apple.webp
 ```
 When you enter your GitHub URL (static image, CSS, JS, etc.), [raw.githack.com](https://raw.githack.com/) will provide you with **two links** (same concept as jsDeliver instead of doing it manually):
 
@@ -86,16 +88,16 @@ You can now use this URL in your HTML, CSS, or JavaScript files to serve the ima
 
 ```html
 <!-- jsDelivr -->
-<img src="https://cdn.jsdelivr.net/gh/<your-username>/assets@master/images/apple.webp">
-<img src="https://cdn.jsdelivr.net/gh/<your-username>/assets@8af9c43c8b6a6cee840cb10d6933ae579834508d/images/apple.webp">
+<img src="https://cdn.jsdelivr.net/gh/<your-username>/<your-repo>@master/images/apple.webp">
+<img src="https://cdn.jsdelivr.net/gh/<your-username>/<your-repo>@8af9c43c8b6a6cee840cb10d6933ae579834508d/images/apple.webp">
 
 <!-- Statically -->
-<img src="https://cdn.statically.io/gh/<your-username>/assets@master/images/apple.webp">
-<img src="https://cdn.statically.io/gh/<your-username>/assets@8af9c43c8b6a6cee840cb10d6933ae579834508d/images/apple.webp">
+<img src="https://cdn.statically.io/gh/<your-username>/<your-repo>@master/images/apple.webp">
+<img src="https://cdn.statically.io/gh/<your-username>/<your-repo>@8af9c43c8b6a6cee840cb10d6933ae579834508d/images/apple.webp">
 
 <!-- raw.githack.com -->
-<img src="https://raw.githack.com/<your-username>/assets/main/images/apple.webp">
-<img src="https://rawcdn.githack.com/<your-username>/assets/8af9c43c8b6a6cee840cb10d6933ae579834508d/images/apple.webp">
+<img src="https://raw.githack.com/<your-username>/<your-repo>/main/images/apple.webp">
+<img src="https://rawcdn.githack.com/<your-username>/<your-repo>/8af9c43c8b6a6cee840cb10d6933ae579834508d/images/apple.webp">
 ```
 
 Note: Make sure to use the production URL when publishing your website. Otherwise, Google Lighthouse will flag the audit with the issue "Serve static assets with an efficient cache policy."
