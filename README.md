@@ -1,0 +1,76 @@
+# Free Content Delivery Network (CDN) with GitHub Repositories
+
+## Introduction
+
+A Content Delivery Network (CDN) can help you serve your static assets (like images, CSS, and JavaScript files) faster by caching them on servers located around the world. This guide will show you how to use a free CDN with your GitHub repository.
+
+## Steps
+
+### 1. Create a GitHub Repository
+
+If you haven't already, create a GitHub repository and upload your static assets. For example, you can create a repository named `assets` and upload your images, CSS, and JavaScript files.
+
+### 2. Use jsDelivr as a CDN
+
+[jsDelivr](https://www.jsdelivr.com/) is a free CDN that can serve files directly from GitHub repositories. To use jsDelivr:
+
+1. Find the URL of the file you want to serve. For example, if you have an image `apple.webp` inside the `images` folder in your repository, the URL would be:
+
+**Development URL** (latest changes reflected instantly):
+```
+https://cdn.jsdelivr.net/gh/bray2sick/assets@master/images/apple.webp
+```
+
+Uses the master branch, reflecting changes within minutes. Ideal for testing and development.
+
+**Production URL** (stable and permanent version):
+
+```
+https://cdn.jsdelivr.net/gh/bray2sick/assets@8af9c43c8b6a6cee840cb10d6933ae579834508d/images/apple.webp
+```
+
+Points to a specific commit, ensuring stable, cached content. Best for production environments where stability is key.
+
+### 3. Alternative CDNs
+
+While I prefer [jsDelivr](https://www.jsdelivr.com/), you can also use other free CDNs like [Statically](https://statically.io/) or [raw.githack.com](https://raw.githack.com/):
+
+**Statically**:
+```
+https://cdn.statically.io/gh/bray2sick/assets@master/images/apple.webp
+```
+**raw.githack.com**:
+```
+https://raw.githack.com/bray2sick/assets/main/images/apple.webp
+```
+When you enter your GitHub URL (static image, CSS, JS, etc.), [raw.githack.com](https://raw.githack.com/) will provide you with **two links** (same concept as jsDeliver instead of doing it manually):
+
+- **Use this URL for production**:
+  - No traffic limits. Files are served via CloudFlare's CDN.
+  - Files can be automatically optimized if you add ?min=1 query parameter.
+  - Use a specific tag or commit hash in the URL instead of a branch. Files are cached permanently based on the URL. The query string is ignored in this case.
+
+- **Use this URL for development**:
+  - New changes you push will be reflected within minutes.
+  - Excessive traffic may lead to temporary redirection to corresponding CDN URLs.
+
+You can now use this URL in your HTML, CSS, or JavaScript files to serve the image via the CDN.
+
+```html
+<!-- jsDelivr -->
+<img src="https://cdn.jsdelivr.net/gh/bray2sick/assets@master/images/apple.webp">
+<img src="https://cdn.jsdelivr.net/gh/bray2sick/assets@8af9c43c8b6a6cee840cb10d6933ae579834508d/images/apple.webp">
+
+<!-- Statically -->
+<img src="https://cdn.statically.io/gh/bray2sick/assets@master/images/apple.webp">
+<img src="https://cdn.statically.io/gh/bray2sick/assets@8af9c43c8b6a6cee840cb10d6933ae579834508d/images/apple.webp">
+
+<!-- raw.githack.com -->
+<img src="https://raw.githack.com/bray2sick/assets/main/images/apple.webp">
+<img src="https://rawcdn.githack.com/bray2sick/assets/8af9c43c8b6a6cee840cb10d6933ae579834508d/images/apple.webp">
+```
+## Conclusion
+
+Using a free CDN like [jsDelivr](https://www.jsdelivr.com/) with your GitHub repository is a simple and effective way to improve the performance of your website by serving static assets faster.
+
+Follow the steps above to set it up and start benefiting from faster load times.
