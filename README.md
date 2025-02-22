@@ -84,7 +84,7 @@ When you enter your GitHub URL (static image, CSS, JS, etc.), [raw.githack.com](
   - New changes you push will be reflected within minutes.
   - Excessive traffic may lead to temporary redirection to corresponding CDN URLs.
 
-You can now use this URL in your HTML, CSS, or JavaScript files to serve the image via the CDN.
+You can now use these URLs in your HTML, CSS, or JavaScript files to serve the image via the CDN.
 
 ```html
 <!-- jsDelivr -->
